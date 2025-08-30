@@ -1,4 +1,4 @@
-name: Build Shinobi Image - Dev Branch
+name: Build Shinobi Image - Master Branch
 
 on:
   push:
@@ -30,8 +30,9 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v5
 
-      - name: Get last commit hash for Shinobi:dev
+      - name: Get last commit hash for Shinobi:master
         run: |
+          git clone --single-branch --branch master https://gitlab.com/Shinobi-Systems/Shinobi.git src/Shinobi
           echo "LAST_COMMIT_HASH=$(cd src/Shinobi && git --no-pager log -n 1 --pretty=format:"%H")" >> "$GITHUB_ENV"
 
       - name: Set up QEMU
@@ -53,9 +54,9 @@ jobs:
         with:
           images: ${{ env.REGISTRY }}/${{ github.repository }}
           tags: |
-            type=raw,value=latest,priority=850,prefix=dev-
-            type=schedule,enable=true,priority=900,pattern={{date 'YYYYMMDD'}},prefix=dev-
-            type=raw,value=${{ env.LAST_COMMIT_HASH }},priority=800,prefix=dev-
+            type=raw,value=latest,priority=850,prefix=master-
+            type=schedule,enable=true,priority=900,pattern={{date 'YYYYMMDD'}},prefix=master-
+            type=raw,value=${{ env.LAST_COMMIT_HASH }},priority=800,prefix=master-
 
       - name: Build and Push
         uses: docker/bake-action@v6
