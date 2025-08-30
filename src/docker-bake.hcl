@@ -6,7 +6,6 @@ target "build" {
   context = "./src/Shinobi"
   dockerfile = "./Dockerfile"
   platforms = [
-    "linux/amd64",
-    "linux/arm64",
+    "linux/amd64"
   ]
 }
