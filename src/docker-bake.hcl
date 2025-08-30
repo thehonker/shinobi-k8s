@@ -3,8 +3,8 @@ target "docker-metadata-action" {}
 
 target "build" {
   inherits = ["docker-metadata-action"]
-  context = "./src/Shinobi"
-  dockerfile = "./Dockerfile"
+  context = "./src"
+  dockerfile = "./Shinobi/Dockerfile"
   platforms = [
     "linux/amd64"
   ]
