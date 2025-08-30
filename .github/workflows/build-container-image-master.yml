@@ -60,6 +60,6 @@ jobs:
         with:
           push: true
           files: |
-            ${{ github.workspace }}/src/docker-bake.hcl
+            ./src/docker-bake.hcl
             cwd://${{ steps.meta.outputs.bake-file }}
           targets: build

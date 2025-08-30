@@ -3,7 +3,7 @@ target "docker-metadata-action" {}
 
 target "build" {
   inherits = ["docker-metadata-action"]
-  context = "./src/Shinobi"
+  context = "$GITHUB_WORKSPACE/src/Shinobi"
   dockerfile = "./Dockerfile"
   platforms = [
     "linux/amd64"
