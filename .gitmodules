@@ -1,0 +1,4 @@
+[submodule "src/Shinobi"]
+	path = src/Shinobi
+	url = https://gitlab.com/Shinobi-Systems/Shinobi.git
+	branch = dev
