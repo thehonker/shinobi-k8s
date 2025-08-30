@@ -58,7 +58,7 @@ jobs:
       - name: Build and Push
         uses: docker/bake-action@v6
         with:
-          set: target.args.EXCLUDE_DB=true
+          set: build.args.EXCLUDE_DB=true
           push: true
           source: .
           files: |
