@@ -1,0 +1,23 @@
+From 9a6e09845c85670ff62c352b5dff086f39d5bc5a Mon Sep 17 00:00:00 2001
+From: Edwin Pers <pers.edwin@gmail.com>
+Date: Sat, 30 Aug 2025 23:32:47 -0400
+Subject: [PATCH] Add discord.js install step to build
+
+---
+ Docker/install_nodejs.sh | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/Docker/install_nodejs.sh b/Docker/install_nodejs.sh
+index bb325ae8..d6d97240 100644
+--- a/Docker/install_nodejs.sh
++++ b/Docker/install_nodejs.sh
+@@ -20,3 +20,6 @@ fi
+ npm install --unsafe-perm $([ `dpkg --print-architecture` = "arm64" ] && echo --maxsockets 1)
+ npm i pm2@latest -g
+ npm i pg
++
++# Add discord.js for discord notifications
++npm install discord.js
+-- 
+2.39.5 (Apple Git-154)
+
