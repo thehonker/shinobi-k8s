@@ -34,7 +34,7 @@ jobs:
         run: |
           cd ${GITHUB_WORKSPACE}/src && git clone --single-branch --branch dev https://gitlab.com/Shinobi-Systems/Shinobi.git
           echo "LAST_COMMIT_HASH=$(cd ${GITHUB_WORKSPACE}/src/Shinobi && git --no-pager log -n 1 --pretty=format:"%H")" | tee "$GITHUB_ENV"
-          patch -p1 -i ${GITHUB_WORKSPACE}/src/0001-Add-discord.js-install-step-to-build.patch
+          cd ${GITHUB_WORKSPACE}/src/Shinobi && patch -p1 -i ${GITHUB_WORKSPACE}/src/0001-Add-discord.js-install-step-to-build.patch
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
